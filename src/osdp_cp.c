@@ -5,7 +5,7 @@
  */
 
 #include <stdlib.h>
-
+#include<stdio.h>
 #include <utils/disjoint_set.h>
 
 #include "osdp_common.h"
@@ -1301,13 +1301,15 @@ static struct osdp *__cp_setup(int num_pd, osdp_pd_info_t *info_list,
 	}
 
 	SET_CURRENT_PD(ctx, 0);
+	/*LOG_PRINT("deshna jain");*/
 
-	LOG_PRINT("Setup complete; PDs:%d Channels:%d - %s %s",
+	LOG_PRINT("Setup complete ; PDs:%d Channels:%d - %s %s",
 		  num_pd, ctx->num_channels, osdp_get_version(),
 		  osdp_get_source_info());
 
 	return ctx;
 error:
+
 	osdp_cp_teardown((osdp_t *)ctx);
 	return NULL;
 }
